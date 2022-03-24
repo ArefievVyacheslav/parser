@@ -1,5 +1,6 @@
 const amerSportParse = require('../parsers/amerSportParse')
 const streetBeatParse = require('../parsers/streetBeatParse')
+const lacosteParse = require('../parsers/lacosteParse')
 
 
 module.exports = function processingJSON(itemArr, storeNameStr) {
@@ -12,6 +13,10 @@ module.exports = function processingJSON(itemArr, storeNameStr) {
 
         if (storeNameStr === 'streetBeat') {
             streetBeatParse(itemArr).then(resItemArr => resolve(resItemArr))
+        }
+
+        if (storeNameStr === 'lacoste') {
+            lacosteParse(itemArr).then(resItemArr => resolve(resItemArr))
         }
     })
 }

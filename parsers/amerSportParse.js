@@ -5,6 +5,9 @@ module.exports = function amerSportParse(itemArr) {
         try {
             // 2.2. Прохожусь по каждому объекту товара
             itemArr.forEach(item => {
+
+                item.shop = 'amerSport'
+
                 if (item.categoryId === 'Amersport' || item.categoryId === 'Converse') item.categoryId = 'Обувь';
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
