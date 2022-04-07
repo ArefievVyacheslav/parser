@@ -25,8 +25,8 @@ const amerSport = 'https://export.admitad.com/ru/webmaster/websites/1545866/prod
         try {
             await client.connect()
             console.log('connect');
-            const ss = await client.db('sales-search')
-            const products = await ss.collection('products')
+            const ss = await client.db('ss')
+            const products = await ss.collection('all')
             await products.deleteMany({ shop: 'amerSport' })
             await products.insertMany(productsArrJSON)
             console.log('done');

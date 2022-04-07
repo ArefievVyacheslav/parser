@@ -82,8 +82,6 @@ module.exports = function amerSportParse(itemArr) {
                 }
             }
 
-            console.log(resultArr);
-
             resolve(resultArr)
 
         } catch (e) {
