@@ -7,11 +7,14 @@ module.exports = function amerSportParse(itemArr) {
             itemArr.forEach(item => {
 
                 item.shop = 'amerSport'
+                item.link = 'https://ad.admitad.com/g/bc2ebmobf9e7566f8b4d043bf79eb7/?ulp=https%3A%2F%2Famersport.ru%2F'
+                item.shopLink = '/shop/amerSport'
+                item.sale = 100 - (item.price / (item.oldprice / 100))
+                item.benefit = item.oldprice - item.price
+                item.delivery = 'russia'
 
                 if (item.categoryId === 'Amersport' || item.categoryId === 'Converse') item.categoryId = 'Обувь';
-                // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
-                item.params = {}
-                // 2.4. Получаю категорию
+                // 2.3. Получаю категорию
                 if (item.categoryId.includes('/')) {
                     item.categoryId = item.categoryId.split('/');
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
@@ -19,6 +22,10 @@ module.exports = function amerSportParse(itemArr) {
                     if (item.categoryId === 'Высокие') item.categoryId = 'Кеды'
                     if (item.categoryId === 'Верхняя') item.categoryId = 'Одежда'
                 }
+                // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
+                item.params = {}
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(1)
+                item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {
 
@@ -38,12 +45,6 @@ module.exports = function amerSportParse(itemArr) {
 
                         item.params.gender = oneParamArr[0] === 'Пол' ? oneParamArr[1] : 'unisex'
                         delete item.param
-
-                        // Удаляю ненужные свойства
-                        // if (!item.type) delete item.type
-                        // if (!item.available) delete item.available
-                        // if (item.currencyId) delete item.currencyId
-                        // if (item.modified_time) delete item.modified_time
                     })
                 }
             })

@@ -1,10 +1,9 @@
-const { MongoClient } = require('mongodb')
 const Auth = require('../helpers/Auth');
 const DownloadTable = require('../helpers/DownloadTable')
 const ParseCSVtoJSON = require('../helpers/ParseCSVtoJSON')
 const ProcessingJSON = require('../helpers/ProcessingJSON')
 const SaveToJSON = require('../helpers/SaveToJSON')
-const client = new MongoClient('mongodb://localhost:27017/');
+const DBwrite = require('../helpers/DBwrite')
 
 
 let token = null;
@@ -19,21 +18,8 @@ const amerSport = 'https://export.admitad.com/ru/webmaster/websites/1545866/prod
     await DownloadTable(amerSport, token, `${__dirname.slice(0, -6)}/tables/amerSport.csv`)                           // Скачана  таблица
     await ParseCSVtoJSON(`./tables/amerSport.csv`).then(productsArr => productsArrJSON = productsArr)                 // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `amerSport`).then(productsJSON => productsArrJSON = productsJSON)   //  Обрабатываю  JSON
-    //  здесь будет запись в БД
     await SaveToJSON(`./results/amerSport.json`, productsArrJSON);                                           // Создаю конечн. JSON
-    await (async function dbConnect() {
-        try {
-            await client.connect()
-            console.log('connect');
-            const ss = await client.db('ss')
-            const products = await ss.collection('all')
-            await products.deleteMany({ shop: 'amerSport' })
-            await products.insertMany(productsArrJSON)
-            console.log('done');
-        } catch (e) {
-            console.log(e);
-        }
-    })();
+    await DBwrite('amerSport', productsArrJSON)
 })();
 
 
