@@ -19,24 +19,3 @@ const lacoste = 'https://export.admitad.com/ru/webmaster/websites/1545866/produc
     await ProcessingJSON(productsArrJSON, `lacoste`).then(productsJSON => productsArrJSON = productsJSON)     //  Обрабатываю  JSON
     await DBwrite('lacoste', productsArrJSON)
 })()
-
-
-// const { MongoClient } = require('mongodb')
-// const client = new MongoClient('mongodb://localhost:27017/');
-//
-// (async () => {
-//     try {
-//         await client.connect()
-//         console.log('connect');
-//         const size42 = await client.db('sales-search')
-//             .collection('products')
-//             .find({
-//                 'params.size': { $in: ['43'] }
-//             })
-//             .toArray()
-//         console.log(size42);
-//     } catch (e) {
-//         console.log(e);
-//
-//     }
-// })()

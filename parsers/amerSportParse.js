@@ -12,6 +12,8 @@ module.exports = function amerSportParse(itemArr) {
                 item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'russia'
+                item.brand = item.vendor
+                delete item.vendor
 
                 if (item.categoryId === 'Amersport' || item.categoryId === 'Converse') item.categoryId = 'Обувь';
                 // 2.3. Получаю категорию
