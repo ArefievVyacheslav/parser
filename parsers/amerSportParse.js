@@ -9,7 +9,7 @@ module.exports = function amerSportParse(itemArr) {
                 item.shop = 'amerSport'
                 item.link = 'https://ad.admitad.com/g/bc2ebmobf9e7566f8b4d043bf79eb7/?ulp=https%3A%2F%2Famersport.ru%2F'
                 item.shopLink = '/shop/amerSport'
-                item.sale = 100 - (item.price / (item.oldprice / 100))
+                item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'russia'
 
@@ -72,11 +72,13 @@ module.exports = function amerSportParse(itemArr) {
 
                             const sizeArr = sourceObj.params.size;                                       // Для удобства
 
-                            if (sizeArr[0] !== itemArr[i2].params.size[0]) {                // Проверяю, что нет размера
+                            if (+sizeArr[0] !== +itemArr[i2].params.size[0]) {                 // Проверяю, что нет размера
 
                                 sizeArr.push(itemArr[i2].params.size[0])                     // Добавляю размер в массив
 
-                                sizeArr.sort((a, b) => a - b);                       // Расставляю в порядке возрастания
+                                resultArr.splice(resultArr.indexOf(itemArr[i2]), 1)                   // удаляю из массива товар с добавленным размером
+
+                                sizeArr.sort((a, b) => a - b);           // Расставляю в порядке возрастания
                             }
                         }
                     }
