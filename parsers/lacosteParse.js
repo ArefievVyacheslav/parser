@@ -7,12 +7,18 @@ module.exports = function lacosteParse(itemArr) {
             itemArr.forEach(item => {
 
                 item.shop = 'lacoste'
-
+                item.link = 'https://ad.admitad.com/g/f446ccbb45e7566f8b4dd5f2d2f9d4/?ulp=https%3A%2F%2Flacoste.ru%2F'
+                item.shopLink = '/shop/lacoste'
+                item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
+                item.benefit = item.oldprice - item.price
+                item.delivery = 'Россия'
                 item.brand = item.vendor
                 delete item.vendor
 
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(1)
+                item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
 
                 // 2.4. Получаю категорию
                 if (item.categoryId.includes('/')) {
@@ -324,6 +330,7 @@ module.exports = function lacosteParse(itemArr) {
 
                     })
                 }
+                item.name = `${item.name} ${item.params.article}`
             })
 
             resolve(itemArr)

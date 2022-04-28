@@ -11,7 +11,7 @@ module.exports = function amerSportParse(itemArr) {
                 item.shopLink = '/shop/amerSport'
                 item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
                 item.benefit = item.oldprice - item.price
-                item.delivery = 'russia'
+                item.delivery = 'Россия'
                 item.brand = item.vendor
                 delete item.vendor
 
@@ -21,8 +21,18 @@ module.exports = function amerSportParse(itemArr) {
                     item.categoryId = item.categoryId.split('/');
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
 
-                    if (item.categoryId === 'Высокие') item.categoryId = 'Кеды'
-                    if (item.categoryId === 'Верхняя') item.categoryId = 'Одежда'
+                    if (item.categoryId === 'Высокие' || item.categoryId === 'Низкие') {
+                        item.categoryId = 'Кеды'
+                        item.category = 'Обувь'
+                    }
+                    if (item.categoryId === 'Верхняя') {
+                        item.category = 'Одежда'
+                        delete item.categoryId
+                    }
+                }
+                if (item.categoryId === 'Обувь') {
+                    item.category = 'Обувь'
+                    delete item.categoryId
                 }
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
