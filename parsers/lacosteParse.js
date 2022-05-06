@@ -17,7 +17,7 @@ module.exports = function lacosteParse(itemArr) {
 
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(1)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
 
                 // 2.4. Получаю категорию
