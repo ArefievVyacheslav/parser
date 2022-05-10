@@ -27,7 +27,8 @@ module.exports = function lacosteParse(itemArr) {
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
                 }
                 if (item.categoryId === 'Поло') item.categoryId = 'Футболки Поло'
-                if (item.categoryId === 'Спортивная одежда') item.categoryId = 'Штаны'
+                if (item.categoryId === 'Спортивная одежда') item.categoryId = 'Штаны и брюки'
+                if (item.categoryId === 'Брюки') item.categoryId = 'Штаны и брюки'
                 if (item.categoryId === 'Верхняя одежда') item.categoryId = 'Куртки'
                 if (item.categoryId === 'Сумки и кошельки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
 
