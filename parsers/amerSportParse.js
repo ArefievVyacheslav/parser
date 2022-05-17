@@ -9,9 +9,12 @@ module.exports = function amerSportParse(itemArr) {
                 item.shop = 'amerSport'
                 item.link = 'https://ad.admitad.com/g/bc2ebmobf9e7566f8b4d043bf79eb7/?ulp=https%3A%2F%2Famersport.ru%2F'
                 item.shopLink = '/shop/amerSport'
-                item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
+                item.sale = +((100 - (item.price / (item.oldprice / 100))).toFixed())
+                item.price = +item.price
+                item.oldprice = +item.oldprice
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
+                item.deliveryPrice = 99
                 item.brand = item.vendor
                 delete item.vendor
 
@@ -53,7 +56,7 @@ module.exports = function amerSportParse(itemArr) {
                                 item.params.size.push(oneParamArr[1])
                             }
                         }
-                        if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1];
+                        if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
                         item.params.gender = oneParamArr[0] === 'Пол' ? oneParamArr[1] : 'unisex'
                         delete item.param

@@ -9,7 +9,10 @@ module.exports = function lacosteParse(itemArr) {
                 item.shop = 'lacoste'
                 item.link = 'https://ad.admitad.com/g/f446ccbb45e7566f8b4dd5f2d2f9d4/?ulp=https%3A%2F%2Flacoste.ru%2F'
                 item.shopLink = '/shop/lacoste'
-                item.sale = (100 - (item.price / (item.oldprice / 100))).toFixed()
+                item.sale = +((100 - (item.price / (item.oldprice / 100))).toFixed())
+                item.price = +item.price
+                item.oldprice = +item.oldprice
+                item.instalments = true
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
                 item.brand = item.vendor
