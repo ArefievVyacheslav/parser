@@ -15,7 +15,7 @@ module.exports = function lacosteParse(itemArr) {
                 item.instalments = true
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
-                item.brand = item.vendor
+                if (item.vendor) item.brand = item.vendor
                 delete item.vendor
 
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
@@ -45,9 +45,87 @@ module.exports = function lacosteParse(itemArr) {
 
                         if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
                         if (oneParamArr[0] === 'Артикул') item.params.article = oneParamArr[1];
-                        if (oneParamArr[0] === 'Цвет') item.params.color = oneParamArr[1];
+                        if (oneParamArr[0] === 'Цвет') {
+                            let coincidence = false
+                            if (oneParamArr[1] === 'Чёрный'
+                                || oneParamArr[1] === 'Тёмно-Серый'
+                                || oneParamArr[1] === 'чёрный'
+                                || oneParamArr[1] === 'черный') {
+                                coincidence = true
+                                item.params.color = 'Чёрный'
+                            }
+                            if (oneParamArr[1] === 'Белый'
+                                || oneParamArr[1] === 'белый'
+                                || oneParamArr[1] === 'молочный'
+                                || oneParamArr[1] === 'Серый'
+                                || oneParamArr[1] === 'серый'
+                                || oneParamArr[1] === 'Бежевый'
+                                || oneParamArr[1] === 'бежевый'
+                                || oneParamArr[1] === 'Серебристый') {
+                                coincidence = true
+                                item.params.color = 'Белый'
+                            }
+                            if (oneParamArr[1] === 'Красный'
+                                || oneParamArr[1] === 'красный'
+                                || oneParamArr[1] === 'бордовый'
+                                || oneParamArr[1] === 'Бордовый') {
+                                coincidence = true
+                                item.params.color = 'Красный'
+                            }
+                            if (oneParamArr[1] === 'Оранжевый'
+                                || oneParamArr[1] === 'оранжевый'
+                                || oneParamArr[1] === 'персиковый'
+                                || oneParamArr[1] === 'Персиковый') {
+                                coincidence = true
+                                item.params.color = 'Оранжевый'
+                            }
+                            if (oneParamArr[1] === 'Желтый'
+                                || oneParamArr[1] === 'Жёлтый'
+                                || oneParamArr[1] === 'жёлтый'
+                                || oneParamArr[1] === 'желтый') {
+                                coincidence = true
+                                item.params.color = 'Желтый'
+                            }
+                            if (oneParamArr[1] === 'Розовый'
+                                || oneParamArr[1] === 'розовый') {
+                                coincidence = true
+                                item.params.color = 'Розовый'
+                            }
+                            if (oneParamArr[1] === 'Фиолетовый'
+                                || oneParamArr[1] === 'фиолетовый') {
+                                coincidence = true
+                                item.params.color = 'Фиолетовый'
+                            }
+                            if (oneParamArr[1] === 'Синий'
+                                || oneParamArr[1] === 'синий'
+                                || oneParamArr[1] === 'Тёмно-Синий'
+                                || oneParamArr[1] === 'Тёмно-синий'
+                                || oneParamArr[1] === 'темно-синий'
+                                || oneParamArr[1] === 'тёмно-синий'
+                                || oneParamArr[1] === 'тёмно-синяя'
+                                || oneParamArr[1] === 'голубой'
+                                || oneParamArr[1] === 'Голубой') {
+                                coincidence = true
+                                item.params.color = 'Синий'
+                            }
+                            if (oneParamArr[1] === 'Зелёный'
+                                || oneParamArr[1] === 'Зеленый'
+                                || oneParamArr[1] === 'зелёный'
+                                || oneParamArr[1] === 'хаки'
+                                || oneParamArr[1] === 'тёмно-зелёный'
+                                || oneParamArr[1] === 'зеленый') {
+                                coincidence = true
+                                item.params.color = 'Зелёный'
+                            }
+                            if (oneParamArr[1] === 'Коричневый'
+                                || oneParamArr[1] === 'коричневый') {
+                                coincidence = true
+                                item.params.color = 'Коричневый'
+                            }
+                            if (!coincidence) item.params.color = oneParamArr[1]
+                        }
 
-                // ОБРАБОТКА РАЗМЕРОВ
+                        // ОБРАБОТКА РАЗМЕРОВ
                         if (oneParamArr[0] === 'Размер' && oneParamArr[1].includes(',')) {
                             // Получаю массив размеров
                             let paramArr = oneParamArr[1].split(',');
