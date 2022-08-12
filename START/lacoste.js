@@ -15,7 +15,7 @@ const lacoste = 'https://export.admitad.com/ru/webmaster/websites/1545866/produc
 (async function start() {                                                                                                    // Запуск парсер
     await Auth().then(tokenRes => token = tokenRes)                                                                         // Цикл по магазам
     await DownloadTable(lacoste, token, `${__dirname.slice(0, -6)}/tables/lacoste.csv`)                               // Скачана  таблица
-    await ParseCSVtoJSON(`./tables/lacoste.csv`).then(productsArr => productsArrJSON = productsArr)                   // Конвертирую  JSON
+    await ParseCSVtoJSON(`../tables/lacoste.csv`).then(productsArr => productsArrJSON = productsArr)                   // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `lacoste`).then(productsJSON => productsArrJSON = productsJSON)     //  Обрабатываю  JSON
     await DBwrite('lacoste', productsArrJSON)
 })()

@@ -15,7 +15,7 @@ const amerSport = 'https://export.admitad.com/ru/webmaster/websites/1545866/prod
 (async function start() {                                                                                                    // Запуск парсер
     await Auth().then(tokenRes => token = tokenRes)                                                                         // Цикл по магазам
     await DownloadTable(amerSport, token, `${__dirname.slice(0, -6)}/tables/amerSport.csv`)                           // Скачана  таблица
-    await ParseCSVtoJSON(`./tables/amerSport.csv`).then(productsArr => productsArrJSON = productsArr)                 // Конвертирую  JSON
+    await ParseCSVtoJSON(`../tables/amerSport.csv`).then(productsArr => productsArrJSON = productsArr)                 // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `amerSport`).then(productsJSON => productsArrJSON = productsJSON)   //  Обрабатываю  JSON
     await DBwrite('amerSport', productsArrJSON)
 })();
