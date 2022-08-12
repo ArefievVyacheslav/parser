@@ -16,7 +16,7 @@ module.exports = function amerSportParse(itemArr) {
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
                 item.deliveryPrice = 99
-                item.brand = item.vendor
+                if (item.vendor) item.brand = item.vendor
                 delete item.vendor
 
                 if (item.categoryId === 'Amersport' || item.categoryId === 'Converse') item.categoryId = 'Обувь';
@@ -50,7 +50,32 @@ module.exports = function amerSportParse(itemArr) {
                     paramsArr.map(option => {
                         const oneParamArr = option.split(':')
 
-                        if (oneParamArr[0] === 'Цвет') item.params.color = oneParamArr[1]
+                        if (oneParamArr[0] === 'Цвет') {
+                            if (oneParamArr[1] === 'Чёрный'
+                                || oneParamArr[1] === 'Тёмно-Серый'
+                                || oneParamArr[1] === 'черный') item.params.color = 'Чёрный'
+                            if (oneParamArr[1] === 'Белый'
+                                || oneParamArr[1] === 'Серый'
+                                || oneParamArr[1] === 'Бежевый'
+                                || oneParamArr[1] === 'Серебристый') item.params.color = 'Белый'
+                            if (oneParamArr[1] === 'Красный'
+                                || oneParamArr[1] === 'Бордовый') item.params.color = 'Красный'
+                            if (oneParamArr[1] === 'Оранжевый') item.params.color = 'Оранжевый'
+                            if (oneParamArr[1] === 'Желтый') item.params.color = 'Желтый'
+                            if (oneParamArr[1] === 'Розовый') item.params.color = 'Розовый'
+                            if (oneParamArr[1] === 'Фиолетовый') item.params.color = 'Фиолетовый'
+                            if (oneParamArr[1] === 'Синий'
+                                || oneParamArr[1] === 'Тёмно-Синий'
+                                || oneParamArr[1] === 'Тёмно-синий'
+                                || oneParamArr[1] === 'Голубой') item.params.color = 'Синий'
+                            if (oneParamArr[1] === 'Зелёный'
+                                || oneParamArr[1] === 'Зеленый'
+                                || oneParamArr[1] === 'зелёный'
+                                || oneParamArr[1] === 'зеленый') item.params.color = 'Зелёный'
+                            if (oneParamArr[1] === 'Коричневый'
+                                || oneParamArr[1] === 'коричневый') item.params.color = 'Коричневый'
+                            else item.params.color = oneParamArr[1]
+                        }
                         if (oneParamArr[0] === 'Размер') {
                             if (item.params.size === undefined) {
                                 item.params.size = []
