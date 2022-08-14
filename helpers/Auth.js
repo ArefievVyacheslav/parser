@@ -38,6 +38,9 @@ module.exports = function getToken() {
         })
         request.write('')
         request.end()
+
+        console.log('Auth ok');
+
     })
 
 }
