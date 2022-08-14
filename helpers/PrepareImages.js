@@ -2,8 +2,6 @@ const fs = require('fs')
 const compress_images = require("compress-images")
 
 module.exports = async () => {
-    fs.rm('../../brand-search-back/images/prepare',{ recursive: true }, () => {})
-
     const INPUT_path_to_your_images = '../../brand-search-back/images/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}'
     const OUTPUT_path = '../../brand-search-back/images/prepare/';
 
@@ -16,10 +14,4 @@ module.exports = async () => {
             console.log(error)
         }
     );
-
-    fs.readdirSync('../../brand-search-back/images').map(file => {
-        fs.unlink(`../../brand-search-back/images/${file}`, err => {
-            if (err) console.log(err)
-        })
-    });
 }

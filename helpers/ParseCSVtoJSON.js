@@ -14,5 +14,8 @@ module.exports = function ParseCSVtoJSON(file) {
 
             resolve(results)
         });
+
+        console.log('ParseCSV ok');
+
     })
 }

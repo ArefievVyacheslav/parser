@@ -6,8 +6,6 @@ module.exports = function streetBeatParse(itemArr) {
             // 2.2. Прохожусь по каждому объекту товара
             itemArr.forEach(item => {
 
-                if (item.picture === '') itemArr.splice(itemArr.indexOf(item), 1)
-
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
 

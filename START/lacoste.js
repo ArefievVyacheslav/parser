@@ -3,6 +3,7 @@ const DownloadTable = require('../helpers/DownloadTable')
 const ParseCSVtoJSON = require('../helpers/ParseCSVtoJSON')
 const ProcessingJSON = require('../helpers/ProcessingJSON')
 const DBwrite = require('../helpers/DBwrite')
+const PrepareImage = require('../helpers/PrepareImage')
 
 
 let token = null;
@@ -18,4 +19,5 @@ const lacoste = 'https://export.admitad.com/ru/webmaster/websites/1545866/produc
     await ParseCSVtoJSON(`../tables/lacoste.csv`).then(productsArr => productsArrJSON = productsArr)                   // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `lacoste`).then(productsJSON => productsArrJSON = productsJSON)     //  Обрабатываю  JSON
     await DBwrite('lacoste', productsArrJSON)
+    await PrepareImage()
 })()
