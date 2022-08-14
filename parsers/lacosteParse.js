@@ -6,6 +6,7 @@ module.exports = function lacosteParse(itemArr) {
             // 2.2. Прохожусь по каждому объекту товара
             itemArr.forEach(item => {
 
+                if (item.picture === '') itemArr.splice(1, itemArr.indexOf(item))
                 item.shop = 'lacoste'
                 item.link = 'https://ad.admitad.com/g/f446ccbb45e7566f8b4dd5f2d2f9d4/?ulp=https%3A%2F%2Flacoste.ru%2F'
                 item.shopLink = '/shop/lacoste'

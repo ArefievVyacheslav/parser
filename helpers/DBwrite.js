@@ -10,7 +10,7 @@ module.exports = async function dbConnect(shop, productsArrJSON) {
         const all = await ss.collection('all')
         await all.deleteMany({ shop: shop })
         await all.insertMany(productsArrJSON)
-        console.log('done');
+        console.log('DB write done');
     } catch (e) {
         console.log(e);
     }

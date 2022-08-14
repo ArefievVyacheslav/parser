@@ -18,5 +18,8 @@ module.exports = function processingJSON(itemArr, storeNameStr) {
         if (storeNameStr === 'lacoste') {
             lacosteParse(itemArr).then(resItemArr => resolve(resItemArr))
         }
+
+        console.log('Processing JSON ok');
+
     })
 }

@@ -13,6 +13,9 @@ module.exports = function downloadFile(url, token, path) {
 
             setTimeout(() => resolve(), 1000)
         });
+
+        console.log('Download Table ok');
+
     })
 }
 
