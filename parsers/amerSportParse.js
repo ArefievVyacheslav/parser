@@ -3,6 +3,8 @@ module.exports = function amerSportParse(itemArr) {
     return new Promise(resolve => {
 
         try {
+            // const emptyPicturesArr = []
+
             // 2.2. Прохожусь по каждому объекту товара
             itemArr.forEach(item => {
 
