@@ -35,7 +35,7 @@ module.exports = async (productsArr) => {
         for (const productObj of productsArrUpdate) {
             await all.updateOne(
                 { id: productObj.id },
-                { $set: { pictureServer: `https://sales-search.ru/prepareImages/${productObj.id}.webp` } })
+                { $set: { pictureServer: `https://api.sales-search.ru/${productObj.id}.webp` } })
         }
         console.log('CHANGE URL DONE!!!')
     } catch (e) {
