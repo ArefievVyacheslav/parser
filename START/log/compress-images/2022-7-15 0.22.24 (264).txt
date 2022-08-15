@@ -1,7 +1,0 @@
-File from: [../../brand-search-back/images/10011.jpg]
-
-File to: [../../brand-search-back/images/prepare/10011.webp]
-
-Compression algorithm: [-]
-
-Description: File does not exist!

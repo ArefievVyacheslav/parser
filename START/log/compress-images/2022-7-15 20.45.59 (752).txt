@@ -1,0 +1,39 @@
+File from: [../../brand-search-back/images/25899.jpg]
+
+File to: [../../brand-search-back/prepareImages/25899.webp]
+
+Compression algorithm: [webp]
+
+Description: Error: Command failed: C:\Users\arefi\Documents\PARSER\node_modules\cwebp-bin\vendor\cwebp.exe -q 30 ../../brand-search-back/images/25899.jpg -o ../../brand-search-back/prepareImages/25899.webp
+SHCreateStreamOnFile((const LPTSTR)filename, STGM_READ, stream) failed 80070002
+Error opening input file ../../brand-search-back/images/25899.jpg (80070002)
+OpenInputStream(filename, &stream) failed 80070002
+cannot open input file '../../brand-search-back/images/25899.jpg'
+Error! Could not process file ../../brand-search-back/images/25899.jpg
+Error! Cannot read input picture file '../../brand-search-back/images/25899.jpg'
+File from: [../../brand-search-back/images/27768.jpg]
+
+File to: [../../brand-search-back/prepareImages/27768.webp]
+
+Compression algorithm: [webp]
+
+Description: Error: Command failed: C:\Users\arefi\Documents\PARSER\node_modules\cwebp-bin\vendor\cwebp.exe -q 30 ../../brand-search-back/images/27768.jpg -o ../../brand-search-back/prepareImages/27768.webp
+SHCreateStreamOnFile((const LPTSTR)filename, STGM_READ, stream) failed 80070002
+Error opening input file ../../brand-search-back/images/27768.jpg (80070002)
+OpenInputStream(filename, &stream) failed 80070002
+cannot open input file '../../brand-search-back/images/27768.jpg'
+Error! Could not process file ../../brand-search-back/images/27768.jpg
+Error! Cannot read input picture file '../../brand-search-back/images/27768.jpg'
+File from: [../../brand-search-back/images/31671.jpg]
+
+File to: [../../brand-search-back/prepareImages/31671.webp]
+
+Compression algorithm: [webp]
+
+Description: Error: Command failed: C:\Users\arefi\Documents\PARSER\node_modules\cwebp-bin\vendor\cwebp.exe -q 30 ../../brand-search-back/images/31671.jpg -o ../../brand-search-back/prepareImages/31671.webp
+SHCreateStreamOnFile((const LPTSTR)filename, STGM_READ, stream) failed 80070002
+Error opening input file ../../brand-search-back/images/31671.jpg (80070002)
+OpenInputStream(filename, &stream) failed 80070002
+cannot open input file '../../brand-search-back/images/31671.jpg'
+Error! Could not process file ../../brand-search-back/images/31671.jpg
+Error! Cannot read input picture file '../../brand-search-back/images/31671.jpg'

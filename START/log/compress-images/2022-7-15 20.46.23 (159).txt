@@ -1,0 +1,26 @@
+File from: [../../brand-search-back/images/1354451.jpg]
+
+File to: [../../brand-search-back/prepareImages/1354451.webp]
+
+Compression algorithm: [webp]
+
+Description: Error: Command failed: C:\Users\arefi\Documents\PARSER\node_modules\cwebp-bin\vendor\cwebp.exe -q 30 ../../brand-search-back/images/1354451.jpg -o ../../brand-search-back/prepareImages/1354451.webp
+SHCreateStreamOnFile((const LPTSTR)filename, STGM_READ, stream) failed 80070002
+Error opening input file ../../brand-search-back/images/1354451.jpg (80070002)
+OpenInputStream(filename, &stream) failed 80070002
+cannot open input file '../../brand-search-back/images/1354451.jpg'
+Error! Could not process file ../../brand-search-back/images/1354451.jpg
+Error! Cannot read input picture file '../../brand-search-back/images/1354451.jpg'
+File from: [../../brand-search-back/images/1354691.jpg]
+
+File to: [../../brand-search-back/prepareImages/1354691.webp]
+
+Compression algorithm: [webp]
+
+Description: Error: Command failed: C:\Users\arefi\Documents\PARSER\node_modules\cwebp-bin\vendor\cwebp.exe -q 30 ../../brand-search-back/images/1354691.jpg -o ../../brand-search-back/prepareImages/1354691.webp
+SHCreateStreamOnFile((const LPTSTR)filename, STGM_READ, stream) failed 80070002
+Error opening input file ../../brand-search-back/images/1354691.jpg (80070002)
+OpenInputStream(filename, &stream) failed 80070002
+cannot open input file '../../brand-search-back/images/1354691.jpg'
+Error! Could not process file ../../brand-search-back/images/1354691.jpg
+Error! Cannot read input picture file '../../brand-search-back/images/1354691.jpg'

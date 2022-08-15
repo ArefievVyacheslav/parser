@@ -1,14 +1,19 @@
+const fs = require('fs')
 const { MongoClient } = require('mongodb')
 const client = new MongoClient('mongodb://localhost:27017/')
 const download = require('image-downloader')
 
-module.exports = async () => {
+module.exports = async (productsArr) => {
     try {
+        fs.readdirSync('../../brand-search-back/images').map(file => {
+            fs.unlink(`../../brand-search-back/images/${file}`, err => {
+                if (err) console.log(err)
+            })
+        });
         await client.connect()
         console.log('connect');
         const ss = await client.db('ss')
         const all = await ss.collection('all')
-        const productsArr = await all.find({}).toArray()
         const idErrorPictureArr = []
         for (const [idx, productObj] of productsArr.entries()) {
             const options = {
@@ -30,7 +35,7 @@ module.exports = async () => {
         for (const productObj of productsArrUpdate) {
             await all.updateOne(
                 { id: productObj.id },
-                { $set: { pictureServer: `https://sales-search.ru/prepare/${productObj.id}.webp` } })
+                { $set: { pictureServer: `https://sales-search.ru/prepareImages/${productObj.id}.webp` } })
         }
         console.log('CHANGE URL DONE!!!')
     } catch (e) {

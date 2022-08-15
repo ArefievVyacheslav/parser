@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "csv-parser": "^3.0.0",
-<<<<<<< HEAD
     "gifsicle": "^5.2.1",
     "image-downloader": "^4.3.0",
     "mongodb": "^4.4.1",
@@ -18,12 +18,10 @@
     "pngquant-bin": "^6.0.1"
   },
   "devDependencies": {
-    "compress-images": "^2.0.5"
-=======
+    "compress-images": "^2.0.5",
     "image-downloader": "^4.3.0",
     "mongodb": "^4.4.1",
     "node-fetch": "^3.2.0",
     "request": "^2.88.2"
->>>>>>> c913b42eeeb06c133166942206a9fbf933bc1a59
   }
 }
