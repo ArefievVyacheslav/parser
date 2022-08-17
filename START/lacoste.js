@@ -8,7 +8,7 @@ let token = null;
 let productsArrJSON = [];
 
 
-const lacoste = 'https://export.admitad.com/ru/webmaster/websites/1545866/products/export_adv_products/?template=66761&user=arefievvyacheslavspb%40gmail.com&code=btg1ajk9az&feed_id=7775';
+const lacoste = 'https://export.admitad.com/ru/webmaster/websites/2276598/products/export_adv_products/?template=66762&user=arefievvyacheslavspb%40gmail.com&code=btg1ajk9az&feed_id=7775';
 
 
 (async function start() {                                                                                                    // Запуск парсер
