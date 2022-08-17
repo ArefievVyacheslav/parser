@@ -18,15 +18,8 @@ const PrepareImages = require('../helpers/PrepareImages');
     for (let page of arrNumberToCount) {
         const { data } = await axios.get(`https://api.sales-search.ru/api/products?page-${page}=true&`)
         const products60 = data.products
-        await DownloadImages(products60.splice(0, 19))
+        await DownloadImages(products60)
         await PrepareImages()
-        setTimeout(() => {}, 5000)
-        await DownloadImages(products60.splice(20, 39))
-        await PrepareImages()
-        setTimeout(() => {}, 5000)
-        await DownloadImages(products60.splice(40, 59))
-        await PrepareImages()
-        setTimeout(() => {}, 5000)
     }
     // await DownloadImages()
     // await PrepareImages()
