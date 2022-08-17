@@ -14,5 +14,4 @@ module.exports = async () => {
             console.log(error)
         }
     );
-    setTimeout(() => {}, 10000)
 }
