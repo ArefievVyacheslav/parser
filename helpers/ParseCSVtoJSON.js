@@ -6,16 +6,15 @@ const results = []
 
 
 module.exports = function ParseCSVtoJSON(file) {
-    return new Promise(resolve => {
-        fs.createReadStream(file) // 'fileName.csv'
-        .pipe(csv({ separator: ';' }))
-        .on('data', (data) => results.push(data))
-        .on('end', () => {
-
-            resolve(results)
-        });
-
-        console.log('ParseCSV ok');
-
+    return new Promise(async resolve => {
+        await fs.createReadStream(file) // 'fileName.csv'
+            .pipe(csv({ separator: ';' }))
+            .on('data', async data => {
+                console.log(data);
+                results.push(data)
+            }).on('end', () => {
+                console.log('ParseCSV ok');
+                resolve(results)
+            });
     })
 }
