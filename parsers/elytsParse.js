@@ -20,11 +20,11 @@ module.exports = function elytsParse(itemArr) {
                 if (item.vendor) item.brand = item.vendor
                 delete item.vendor
 
-                if (item.categoryId.includes('Платья и сарафаны/Casual')) item.categoryId = 'Платья и сарафаны'
-                if (item.categoryId.includes('Брюки/Casual')) item.categoryId = 'Брюки'
-                if (item.categoryId.includes('Рубашки/Casual')) item.categoryId = 'Рубашки'
+                if (item.categoryId && item.categoryId.includes('Платья и сарафаны/Casual')) item.categoryId = 'Платья и сарафаны'
+                if (item.categoryId && item.categoryId.includes('Брюки/Casual')) item.categoryId = 'Брюки'
+                if (item.categoryId && item.categoryId.includes('Рубашки/Casual')) item.categoryId = 'Рубашки'
                 // 2.3. Получаю категорию
-                if (item.categoryId.includes('/')) {
+                if (item.categoryId && item.categoryId.includes('/')) {
                     item.categoryId = item.categoryId.split('/');
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
                 }
