@@ -81,30 +81,61 @@ module.exports = function elytsParse(itemArr) {
                         const oneParamArr = option.split(':')
 
                         if (oneParamArr[0] === 'Цвет') {
+                            let include = false
                             if (oneParamArr[1] === 'Чёрный'
                                 || oneParamArr[1] === 'Тёмно-Серый'
-                                || oneParamArr[1] === 'черный') item.params.color = 'Чёрный'
+                                || oneParamArr[1] === 'черный') {
+                                item.params.color = 'Чёрный'
+                                include = true
+                            }
                             if (oneParamArr[1] === 'Белый'
                                 || oneParamArr[1] === 'Серый'
                                 || oneParamArr[1] === 'Бежевый'
-                                || oneParamArr[1] === 'Серебристый') item.params.color = 'Белый'
+                                || oneParamArr[1] === 'Серебристый') {
+                                item.params.color = 'Белый'
+                                include = true
+                            }
                             if (oneParamArr[1] === 'Красный'
-                                || oneParamArr[1] === 'Бордовый') item.params.color = 'Красный'
-                            if (oneParamArr[1] === 'Оранжевый') item.params.color = 'Оранжевый'
-                            if (oneParamArr[1] === 'Желтый') item.params.color = 'Желтый'
-                            if (oneParamArr[1] === 'Розовый') item.params.color = 'Розовый'
-                            if (oneParamArr[1] === 'Фиолетовый') item.params.color = 'Фиолетовый'
+                                || oneParamArr[1] === 'Бордовый') {
+                                item.params.color = 'Красный'
+                                include = true
+                            }
+                            if (oneParamArr[1] === 'Оранжевый') {
+                                item.params.color = 'Оранжевый'
+                                include = true
+                            }
+                            if (oneParamArr[1] === 'Желтый') {
+                                item.params.color = 'Желтый'
+                                include = true
+                            }
+                            if (oneParamArr[1] === 'Розовый') {
+                                item.params.color = 'Розовый'
+                                include = true
+                            }
+                            if (oneParamArr[1] === 'Фиолетовый') {
+                                item.params.color = 'Фиолетовый'
+                                include = true
+                            }
                             if (oneParamArr[1] === 'Синий'
                                 || oneParamArr[1] === 'Тёмно-Синий'
                                 || oneParamArr[1] === 'Тёмно-синий'
-                                || oneParamArr[1] === 'Голубой') item.params.color = 'Синий'
+                                || oneParamArr[1] === 'Голубой') {
+                                item.params.color = 'Синий'
+                                include = true
+                            }
                             if (oneParamArr[1] === 'Зелёный'
                                 || oneParamArr[1] === 'Зеленый'
                                 || oneParamArr[1] === 'зелёный'
-                                || oneParamArr[1] === 'зеленый') item.params.color = 'Зелёный'
+                                || oneParamArr[1] === 'зеленый') {
+                                item.params.color = 'Зелёный'
+                                include = true
+                            }
                             if (oneParamArr[1] === 'Коричневый'
-                                || oneParamArr[1] === 'коричневый') item.params.color = 'Коричневый'
-                            else item.params.color = oneParamArr[1]
+                                || oneParamArr[1] === 'коричневый') {
+                                item.params.color = 'Коричневый'
+                                include = true
+                            }
+                            if (!include) item.params.color = oneParamArr[1]
                         }
                         if (oneParamArr[0] === 'Размер') {
                             if (item.params.size === undefined) {
