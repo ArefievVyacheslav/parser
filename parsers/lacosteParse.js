@@ -6,7 +6,6 @@ module.exports = function lacosteParse(itemArr) {
             // 2.2. Прохожусь по каждому объекту товара
             itemArr.forEach(item => {
 
-                item.brand = item.brand.toUpperCase()
                 item.shop = 'lacoste'
                 item.link = 'https://ad.admitad.com/g/f446ccbb45e7566f8b4dd5f2d2f9d4/?ulp=https%3A%2F%2Flacoste.ru%2F'
                 item.shopLink = '/shop/lacoste'
@@ -16,7 +15,7 @@ module.exports = function lacosteParse(itemArr) {
                 item.instalments = true
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
-                if (item.vendor) item.brand = item.vendor
+                item.brand = 'LACOSTE'
                 delete item.vendor
 
                 // 2.3. Создаю доп.свойство для объединения параметров цвета, размера, возраста
