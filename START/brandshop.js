@@ -13,7 +13,7 @@ const brandshop = 'https://feeds.advcake.com/feed/download/5bf6b88126682f0c15a88
     await DownloadTable(brandshop, '', `${__dirname.slice(0, -6)}/tables/brandshop.csv`)                           // Скачана  таблица
     await ParseCSVtoJSON('../tables/brandshop.csv').then(productsArr => productsArrJSON = productsArr)                // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `brandshop`).then(productsJSON => productsArrJSON = productsJSON)   //  Обрабатываю  JSON
-    await DBwrite('amerSport', productsArrJSON)
+    await DBwrite('brandshop', productsArrJSON)
 })();
 
 

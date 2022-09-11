@@ -13,7 +13,7 @@ module.exports = function ParseCSVtoJSON(file) {
                 setTimeout(() => {
                     console.log('ParseCSV ok', results.length);
                     resolve(results)
-                }, 10000)
+                }, 1000)
             });
     })
 }
