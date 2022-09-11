@@ -103,10 +103,9 @@ module.exports = function vipavenueParse(itemArr) {
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
-                        item.params.gender = oneParamArr[0] === 'Пол' ? oneParamArr[1] : 'unisex'
+                        if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
                         if (item.params.gender === 'Для мужчин') item.params.gender = 'Мужской'
                         if (item.params.gender === 'Для женщин') item.params.gender = 'Женский'
-                        if (item.params.gender === 'Для детей') item.params.gender = 'Детский'
                         delete item.param
                     })
                 }
