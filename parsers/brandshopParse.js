@@ -8,7 +8,7 @@ module.exports = function amerSportParse(itemArr) {
             // 2.2. Прохожусь по каждому объекту товара
             for (const item of itemArr) {
 
-                item.idd = 8234 + Math.random() * 100 + 82648 + Math.random() * 100
+                item.idd = 1111111 + Math.random() * 100 + 82648 + Math.random() * 100
                 item.picture = item.image
                 item.shop = 'brandshop'
                 item.link = 'https://go.redav.online/32d7e3ac52dcabb0'
