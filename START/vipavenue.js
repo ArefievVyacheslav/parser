@@ -12,8 +12,8 @@ let productsArrJSON = [];
 const vipavenue = 'https://export.admitad.com/ru/webmaster/websites/2276598/products/export_adv_products/?template=68664&user=arefievvyacheslavspb%40gmail.com&code=btg1ajk9az&feed_id=22090';
 
 (async function start() {                                                                                                    // Запуск парсер
-    // await Auth().then(tokenRes => token = tokenRes)                                                                         // Цикл по магазам
-    // await DownloadTable(vipavenue, token, `${__dirname.slice(0, -6)}/tables/vipavenue.csv`)                           // Скачана  таблица
+    await Auth().then(tokenRes => token = tokenRes)                                                                         // Цикл по магазам
+    await DownloadTable(vipavenue, token, `${__dirname.slice(0, -6)}/tables/vipavenue.csv`)                           // Скачана  таблица
     await ParseCSVtoJSON('../tables/vipavenue.csv').then(productsArr => productsArrJSON = productsArr)                // Конвертирую  JSON
     await ProcessingJSON(productsArrJSON, `vipavenue`).then(productsJSON => productsArrJSON = productsJSON)   //  Обрабатываю  JSON
     await DBwrite('vipavenue', productsArrJSON)
