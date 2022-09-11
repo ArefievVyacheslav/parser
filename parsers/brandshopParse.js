@@ -19,7 +19,7 @@ module.exports = function amerSportParse(itemArr) {
                 item.benefit = +item.discount_sum
                 item.delivery = 'Россия'
                 item.deliveryPrice = 350
-                item.brand.toUpperCase()
+                item.brand = item.brand.toUpperCase()
 
                 // 2.3. Получаю категорию
                 if (item.category.includes(' > ')) {
