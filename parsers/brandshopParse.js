@@ -34,6 +34,7 @@ module.exports = function amerSportParse(itemArr) {
                     }
                     delete item.categoryArr
                 }
+                item.name = item.categoryId + ' ' + item.name
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.param = item.params
                 delete item.params
