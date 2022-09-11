@@ -1,4 +1,4 @@
-module.exports = function amerSportParse(itemArr) {
+module.exports = function brandshopParse(itemArr) {
 
     return new Promise(async resolve => {
 
@@ -27,6 +27,7 @@ module.exports = function amerSportParse(itemArr) {
                     if (item.categoryArr[0] === 'Аксессуары') {
                         item.category = 'Аксессуары'
                         item.categoryId = item.categoryArr[item.categoryArr.length - 1]
+                        if (item.categoryId === 'Рюкзаки и суки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                     } else {
                         item.category = item.categoryArr[1].split(' ')
                         item.category = item.category[item.category.length - 1].charAt(0).toUpperCase() + item.category[item.category.length - 1].slice(1)

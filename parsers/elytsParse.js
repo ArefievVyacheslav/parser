@@ -28,7 +28,9 @@ module.exports = function elytsParse(itemArr) {
                     item.categoryId = item.categoryId.split('/')
                     item.categoryId[1] === 'Sale' ? item.category = item.categoryId[2] : item.category = item.categoryId[1]
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
-                    if (item.categoryId === 'Сумки') item.categoryId = 'Аксессуары'
+                    if (item.categoryId === 'Колготки') item.category = 'Колготки и чулки'
+                    if (item.categoryId === 'Сумки') item.category = 'Аксессуары'
+                    if (item.categoryId === 'Шубы' || item.categoryId === 'Дублёнки') item.categoryId = 'Шубы и дубленки'
                     if (item.categoryId === 'Прямые') item.categoryId = 'Джинсы прямые'
                     if (item.categoryId === 'Зауженные') item.categoryId = 'Джинсы зауженные'
                     if (item.categoryId === 'Классические') item.categoryId = 'Брюки классические'
@@ -66,6 +68,8 @@ module.exports = function elytsParse(itemArr) {
                     if (item.categoryId === 'Классические жилеты') item.categoryId = 'Жилеты классические'
                     if (item.categoryId === 'Классические костюмы') item.categoryId = 'Костюмы классические'
                     if (item.categoryId === 'Зимние куртки') item.categoryId = 'Куртки зимние'
+                    if (item.categoryId === 'Кошельки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
+                    if (item.categoryId === 'Бейсболки') item.categoryId = 'Кепки'
                     if (item.categoryId === 'Блузы' || item.categoryId === 'Рубашки') item.categoryId = 'Блузы и рубашки'
                 }
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
