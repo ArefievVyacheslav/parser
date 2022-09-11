@@ -8,6 +8,7 @@ module.exports = function amerSportParse(itemArr) {
             // 2.2. Прохожусь по каждому объекту товара
             for (const item of itemArr) {
 
+                item.id = item._id
                 item.picture = item.image
                 item.shop = 'brandshop'
                 item.link = 'https://go.redav.online/32d7e3ac52dcabb0'
@@ -118,7 +119,8 @@ module.exports = function amerSportParse(itemArr) {
                         if (oneParamArr[0] === 'Размер') {
                             if (item.params.size === undefined) {
                                 item.params.size = []
-                                item.params.size.push(oneParamArr[1].replace(' INT', ''))
+                                let size = oneParamArr[1] === 'UNI RU' ? 'ONE SIZE' : oneParamArr[1].replace(' INT', '')
+                                item.params.size.push(size)
                             }
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
