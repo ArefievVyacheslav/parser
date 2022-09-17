@@ -29,7 +29,9 @@ module.exports = function vipavenueParse(itemArr) {
                     if (item.category === 'Одежда для дома') item.category = 'Одежда'
                     if (item.category === 'Сумки') item.category = 'Аксессуары'
                     item.categoryId = item.categoryArr[item.categoryArr.length - 1]
-
+                    if (item.categoryId === 'Клеш') item.category = 'Клёш'
+                    if (item.categoryId === 'Коктейльные') item.category = 'Платья коктейльные'
+                    if (item.categoryId === 'Легинсы') item.category = 'Леггинсы'
                     if (item.categoryId === 'Кольца') item.categoryId = 'Кольца и перстни'
                     if (item.categoryId === 'Часы') item.categoryId = 'Наручные часы'
                     if (item.categoryId === 'Джинсовые куртки') item.categoryId = 'Куртки джинсовые'
@@ -39,8 +41,11 @@ module.exports = function vipavenueParse(itemArr) {
                     if (item.categoryId === 'Спортивные топы') item.categoryId = 'Топы спортивные'
                     if (item.categoryId === 'Спортивные футболки') item.categoryId = 'Футболки спортивные'
                     if (item.categoryId === 'Спортивные шорты') item.categoryId = 'Шорты спортивные'
-                    if (item.categoryId === 'Кошельки и портмоне' || item.categoryId === 'Рюкзаки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
+                    if (item.categoryId === 'Кошельки и портмоне' || item.categoryId === 'Рюкзаки' || item.categoryId === 'Сумки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                     if (item.categoryId === 'Колготки и чулки') item.category = 'Аксессуары'
+                    if (item.categoryId === 'Бейсболки') item.categoryId = 'Кепки'
+                    if (item.categoryId === 'Воротники') item.categoryId = 'Воротники и манжеты'
+                    if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                     if (item.categoryId === 'Прямые'
                         || item.categoryId === 'Скинни'
                         || item.categoryId === 'Зауженные'
@@ -55,7 +60,7 @@ module.exports = function vipavenueParse(itemArr) {
                         || item.categoryId === 'Миди'
                         || item.categoryId === 'Свободный крой') item.categoryId = item.categoryArr[item.categoryArr.length - 2] + ' ' + item.categoryId.toLowerCase()
                 }
-                item.name = `${item.type} ${item.brand} №${item.id}`
+                item.name = `${item.categoryId} ${item.brand} №${item.id}`
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
                 item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)

@@ -9,6 +9,7 @@ module.exports = function elytsParse(itemArr) {
             for (const item of itemArr) {
 
                 item.shop = 'elyts'
+                item.id = +item.id
                 item.link = 'https://ad.admitad.com/g/94i5ql5fv141237c4d2c0440437a08/?ulp=https%3A%2F%2Felyts.ru%2F'
                 item.shopLink = '/shop/elyts'
                 item.sale = +((100 - (item.price / (item.oldprice / 100))).toFixed())
@@ -28,8 +29,12 @@ module.exports = function elytsParse(itemArr) {
                     item.categoryId = item.categoryId.split('/')
                     item.categoryId[1] === 'Sale' ? item.category = item.categoryId[2] : item.category = item.categoryId[1]
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
+                    if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                     if (item.categoryId === 'Колготки') item.category = 'Колготки и чулки'
                     if (item.categoryId === 'Сумки') item.category = 'Аксессуары'
+                    if (item.categoryId === 'Клеш') item.category = 'Клёш'
+                    if (item.categoryId === 'Легинсы') item.category = 'Леггинсы'
+                    if (item.categoryId === 'Коктейльные') item.category = 'Платья коктейльные'
                     if (item.categoryId === 'Шубы' || item.categoryId === 'Дублёнки') item.categoryId = 'Шубы и дубленки'
                     if (item.categoryId === 'Прямые') item.categoryId = 'Джинсы прямые'
                     if (item.categoryId === 'Зауженные') item.categoryId = 'Джинсы зауженные'
@@ -50,7 +55,7 @@ module.exports = function elytsParse(itemArr) {
                     if (item.categoryId === 'Прямые') item.categoryId = 'Джинсы прямые'
                     if (item.categoryId === 'Укороченные') item.categoryId = 'Джинсы укороченные'
                     if (item.categoryId === 'Широкие') item.categoryId = 'Джинсы широкие'
-                    if (item.categoryId === 'Портмоне и кошельки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
+                    if (item.categoryId === 'Портмоне и кошельки' || item.categoryId === 'Сумки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                     if (item.categoryId === 'Трикотажные жилеты') item.categoryId = 'Жилеты трикотажные'
                     if (item.categoryId === 'Спортивные брюки') item.categoryId = 'Брюки спортивные'
                     if (item.categoryId === 'Спортивные костюмы') item.categoryId = 'Костюмы спортивные'
@@ -71,6 +76,10 @@ module.exports = function elytsParse(itemArr) {
                     if (item.categoryId === 'Кошельки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                     if (item.categoryId === 'Бейсболки') item.categoryId = 'Кепки'
                     if (item.categoryId === 'Блузы' || item.categoryId === 'Рубашки') item.categoryId = 'Блузы и рубашки'
+                    if (item.categoryId.includes('Чехл')) {
+                        item.category = 'Аксессуары'
+                        item.categoryId = 'Чехлы'
+                    }
                 }
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
@@ -149,8 +158,8 @@ module.exports = function elytsParse(itemArr) {
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
-                        item.params.gender = oneParamArr[0] === 'Пол' ? oneParamArr[1] : 'unisex'
-                        delete item.param
+                        if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
+                            delete item.param
                         delete item.available
                         delete item.currencyId
                         delete item.model

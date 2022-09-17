@@ -9,6 +9,7 @@ module.exports = function amerSportParse(itemArr) {
             for (const item of itemArr) {
 
                 if (item.picture) item.picture = item.picture.replace('https://amersport.ru', 'https://nonconform.ru')
+                item.id = +item.id
                 item.shop = 'amerSport'
                 item.link = 'https://ad.admitad.com/g/bc2ebmobf9e7566f8b4d043bf79eb7/?ulp=https%3A%2F%2Famersport.ru%2F'
                 item.shopLink = '/shop/amerSport'
