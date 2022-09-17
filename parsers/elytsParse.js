@@ -154,9 +154,34 @@ module.exports = function elytsParse(itemArr) {
                         if (oneParamArr[0] === 'Размер') {
                             if (item.params.size === undefined) {
                                 item.params.size = []
-                                item.params.size.push(oneParamArr[1])
+                                if (item.category === 'Обувь') {
+                                    const sizesSneakersObj = {
+                                        4: '36.5',
+                                        5: '37.5',
+                                        6: '38',
+                                        6.5: '38.5',
+                                        7: '39',
+                                        7.5: '39.5',
+                                        8: '40',
+                                        8.5: '40.5',
+                                        9: '41',
+                                        9.5: '41.5',
+                                        10: '42',
+                                        10.5: '42.5',
+                                        11: '43',
+                                        11.5: '43.5',
+                                        12: '44',
+                                        12.5: '44.5',
+                                        13: '45'
+                                    }
+                                    Object.keys(sizesSneakersObj).forEach(size => {
+                                        item.params.size.push(oneParamArr[1] === size ? sizesSneakersObj[size] : oneParamArr[1])
+                                    })
+
+                                } else item.params.size.push(oneParamArr[1])
                             }
                         }
+
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
                         if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
