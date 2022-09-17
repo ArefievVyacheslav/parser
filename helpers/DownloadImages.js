@@ -32,7 +32,7 @@ module.exports = async (productsArr) => {
         }
         const productsArrUpdate = await all.find({}).toArray()
         console.log('CHANGE IMAGE URL IN DB!!!')
-        for (const productObj of productsArrUpdate) {
+        for (const productObj of productsArr) {
             await all.updateOne(
                 { id: productObj.id },
                 { $set: { pictureServer: `https://api.sales-search.ru/${productObj.id}.webp` } })

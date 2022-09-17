@@ -46,6 +46,7 @@ module.exports = function vipavenueParse(itemArr) {
                     if (item.categoryId === 'Бейсболки') item.categoryId = 'Кепки'
                     if (item.categoryId === 'Воротники') item.categoryId = 'Воротники и манжеты'
                     if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
+                    if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'
                     if (item.categoryId === 'Прямые'
                         || item.categoryId === 'Скинни'
                         || item.categoryId === 'Зауженные'

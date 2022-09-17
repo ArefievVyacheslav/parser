@@ -36,6 +36,7 @@ module.exports = function amerSportParse(itemArr) {
                         item.category = 'Одежда'
                         delete item.categoryId
                     }
+                    if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                 }
                 if (item.categoryId === 'Обувь') {
                     item.category = 'Обувь'

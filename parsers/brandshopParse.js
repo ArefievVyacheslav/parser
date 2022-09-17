@@ -28,6 +28,9 @@ module.exports = function brandshopParse(itemArr) {
                         item.category = 'Аксессуары'
                         item.categoryId = item.categoryArr[item.categoryArr.length - 1]
                         if (item.categoryId === 'Рюкзаки и суки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
+                        if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
+                        if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'
+                        if (item.categoryId === 'Рюкзаки и сумки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                     } else {
                         item.category = item.categoryArr[1].split(' ')
                         item.category = item.category[item.category.length - 1].charAt(0).toUpperCase() + item.category[item.category.length - 1].slice(1)
@@ -135,6 +138,7 @@ module.exports = function brandshopParse(itemArr) {
                 delete item.available
                 delete item.gtin
                 delete item.mpn
+                delete item.image
                 delete item.currency
                 delete item.credit_price
                 if (!item.description) delete item.description

@@ -30,6 +30,7 @@ module.exports = function elytsParse(itemArr) {
                     item.categoryId[1] === 'Sale' ? item.category = item.categoryId[2] : item.category = item.categoryId[1]
                     item.categoryId = item.categoryId[item.categoryId.length - 1]
                     if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
+                    if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'
                     if (item.categoryId === 'Колготки') item.category = 'Колготки и чулки'
                     if (item.categoryId === 'Сумки') item.category = 'Аксессуары'
                     if (item.categoryId === 'Клеш') item.category = 'Клёш'
