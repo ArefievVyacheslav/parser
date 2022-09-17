@@ -27,6 +27,7 @@ module.exports = function brandshopParse(itemArr) {
                     if (item.categoryArr[0] === 'Аксессуары') {
                         item.category = 'Аксессуары'
                         item.categoryId = item.categoryArr[item.categoryArr.length - 1]
+                        if (item.categoryId === 'Товары для скейтборда') continue
                         if (item.categoryId === 'Рюкзаки и суки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                         if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                         if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'

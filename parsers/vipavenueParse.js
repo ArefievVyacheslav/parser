@@ -105,7 +105,7 @@ module.exports = function vipavenueParse(itemArr) {
                                 item.params.size = []
                                 let size = oneParamArr[1] === 'Один размер' ? 'ONE SIZE' : oneParamArr[1]
                                 item.params.size.push(size)
-                            }
+                            } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1] === 'Один размер' ? 'ONE SIZE' : oneParamArr[1])
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
@@ -142,18 +142,15 @@ module.exports = function vipavenueParse(itemArr) {
 
                     if (sourceObj                                                                   // Объект существует
                         && itemArr[i2]                                                             // Оригинал тоже
-                        && sourceObj.name                                                         // У него есть имя
-                        && itemArr[i2].name                                                      // И у оригинала тоже
                         && !!sourceObj.params                                                   // У него есть параметры
                         && !!itemArr[i2].params                                                // И у оригинала тоже
                         && !!sourceObj.params.size                                            // Есть размер
                         && !!itemArr[i2].params.size) {                                      // И у оригинала тоже
 
-                        if (sourceObj.name === itemArr[i2].name                                      // Если имена равны
-                            && sourceObj.description === itemArr[i2].description                    // И описания
+                        if (sourceObj.description === itemArr[i2].description                    // И описания
                             && sourceObj.params.color === itemArr[i2].params.color) {              // И цвета
 
-                            const sizeArr = sourceObj.params.size;                                       // Для удобства
+                            const sizeArr = sourceObj.params.size                                       // Для удобства
 
                             if (+sizeArr[0] !== +itemArr[i2].params.size[0]) {                 // Проверяю, что нет размера
 
