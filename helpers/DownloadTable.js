@@ -11,7 +11,7 @@ module.exports = function downloadFile(url, token, path) {
             }}).then(res => {
             res.body.pipe(fs.createWriteStream(path));
 
-            setTimeout(() => resolve(), 15000)
+            setTimeout(() => resolve(), 150000)
         });
 
         console.log('Download Table ok');

@@ -18,7 +18,7 @@ module.exports = function vipavenueParse(itemArr) {
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
                 item.deliveryPrice = 500
-                if (item.vendor) item.brand = item.vendor
+                if (item.vendor) item.brand = item.vendor.replace('&amp;', '&')
                 delete item.vendor
 
                 // 2.3. Получаю категорию
@@ -61,7 +61,7 @@ module.exports = function vipavenueParse(itemArr) {
                         || item.categoryId === 'Миди'
                         || item.categoryId === 'Свободный крой') item.categoryId = item.categoryArr[item.categoryArr.length - 2] + ' ' + item.categoryId.toLowerCase()
                 }
-                item.name = `${item.categoryId} ${item.brand} №${item.id}`
+                item.name = `${item.categoryId} ${item.brand}`.replace('&amp;', '&')
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
                 item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
@@ -119,11 +119,13 @@ module.exports = function vipavenueParse(itemArr) {
                     item.category = 'Обувь'
                     item.params.gender = 'Женский'
                     item.params.age = 'Детский'
+                    delete item.categoryId
                 }
                 if (item.categoryId === 'Одежда для мальчиков') {
                     item.category = 'Одежда'
                     item.params.gender = 'Мужской'
                     item.params.age = 'Детский'
+                    delete item.categoryId
                 }
                 delete item.available
                 delete item.currencyId

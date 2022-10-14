@@ -17,6 +17,7 @@ module.exports = function brandshopParse(itemArr) {
                 item.price = +item.price
                 item.oldprice = +item.old_price
                 item.benefit = +item.discount_sum
+                item.instalments = true
                 item.delivery = 'Россия'
                 item.deliveryPrice = 350
                 item.brand = item.brand.toUpperCase()
@@ -27,7 +28,10 @@ module.exports = function brandshopParse(itemArr) {
                     if (item.categoryArr[0] === 'Аксессуары') {
                         item.category = 'Аксессуары'
                         item.categoryId = item.categoryArr[item.categoryArr.length - 1]
-                        if (item.categoryId === 'Товары для скейтборда') continue
+                        if (item.categoryId === 'Товары для скейтборда') {
+                            itemArr.splice(itemArr.indexOf(item), 1)
+                            continue
+                        }
                         if (item.categoryId === 'Рюкзаки и суки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                         if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                         if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'
@@ -126,7 +130,7 @@ module.exports = function brandshopParse(itemArr) {
                                 item.params.size = []
                                 let size = oneParamArr[1] === 'UNI RU' ? 'ONE SIZE' : oneParamArr[1].replace(' INT', '')
                                 item.params.size.push(size)
-                            }
+                            } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1])
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 

@@ -17,7 +17,7 @@ module.exports = function elytsParse(itemArr) {
                 item.oldprice = +item.oldprice
                 item.benefit = item.oldprice - item.price
                 item.delivery = 'Россия'
-                item.deliveryPrice = 350
+                item.deliveryPrice = 500
                 if (item.vendor) item.brand = item.vendor
                 delete item.vendor
 
@@ -177,12 +177,12 @@ module.exports = function elytsParse(itemArr) {
                                     Object.keys(sizesSneakersObj).forEach(size => {
                                         if (oneParamArr[1] === size) item.params.size.push(sizesSneakersObj[size])
                                     })
-                                }
+                                } else item.params.size.push(oneParamArr[1])
                             } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1])
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
-                        if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
+                        if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1] === 'Унисекс' ? 'unisex' : oneParamArr[1]
                         delete item.param
                         delete item.available
                         delete item.currencyId
