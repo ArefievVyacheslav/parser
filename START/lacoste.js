@@ -8,6 +8,7 @@ let token = null;
 let productsArrJSON = [];
 
 
+
 const lacoste = 'https://export.admitad.com/ru/webmaster/websites/2276598/products/export_adv_products/?template=66762&user=arefievvyacheslavspb%40gmail.com&code=btg1ajk9az&feed_id=7775';
 
 
