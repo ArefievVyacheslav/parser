@@ -98,8 +98,8 @@ module.exports = function brionityParse(itemArr) {
                         if (oneParamArr[0] === 'Размер') {
                             if (item.params.size === undefined) {
                                 item.params.size = []
-                                item.params.size.push(oneParamArr[1])
-                            } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1])
+                                item.params.size.push(oneParamArr[1].replace(' ', ''))
+                            } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1].replace(' ', ''))
                         }
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 

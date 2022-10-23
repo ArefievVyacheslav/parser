@@ -132,7 +132,7 @@ module.exports = function brandshopParse(itemArr) {
                                 item.params.size.push(size)
                             } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1])
                         }
-                        if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
+                        if (oneParamArr[0] === 'Возраст') item.params.gender = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
                         item.params.gender = oneParamArr[0] === 'Пол' ? oneParamArr[1] : 'unisex'
                         delete item.param

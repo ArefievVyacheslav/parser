@@ -37,6 +37,7 @@ module.exports = function lacosteParse(itemArr) {
                 if (item.categoryId === 'Сумки и кошельки') item.categoryId = 'Сумки, Рюкзаки и Кошельки'
                 if (item.categoryId === 'Перчатки') item.categoryId = 'Перчатки и рукава'
                 if (item.categoryId === 'Подвески') item.categoryId = 'Подвески, ожерелья, бусы'
+                if (item.categoryId === 'Штаны и брюки') item.categoryId = 'Брюки'
 
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {
