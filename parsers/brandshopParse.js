@@ -50,7 +50,7 @@ module.exports = function brandshopParse(itemArr) {
                 delete item.params
 
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {

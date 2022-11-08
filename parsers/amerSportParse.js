@@ -44,7 +44,7 @@ module.exports = function amerSportParse(itemArr) {
                 }
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {

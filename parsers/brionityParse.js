@@ -59,7 +59,7 @@ module.exports = function brionityParse(itemArr) {
                 }
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {
@@ -109,25 +109,21 @@ module.exports = function brionityParse(itemArr) {
                 }
                 if (item.categoryId === 'Одежда для девочек') {
                     item.category = 'Одежда'
-                    item.params.gender = 'Женский'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }
                 if (item.categoryId === 'Обувь для девочек') {
                     item.category = 'Одежда'
-                    item.params.gender = 'Женский'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }
                 if (item.categoryId === 'Одежда для мальчиков') {
                     item.category = 'Одежда'
-                    item.params.gender = 'Мужской'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }
                 if (item.categoryId === 'Обувь для мальчиков') {
                     item.category = 'Обувь'
-                    item.params.gender = 'Мужской'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }

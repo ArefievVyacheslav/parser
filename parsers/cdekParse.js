@@ -57,7 +57,7 @@ module.exports = function cdekParse(itemArr) {
                     delete item.categoryArr
                 }
 
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
 
                 if (item.params.gender === 'Мужской' && item.category === 'Обувь') item.params.size = ['38', '39', '40', '41', '42', '43', '44', '45']
@@ -79,6 +79,30 @@ module.exports = function cdekParse(itemArr) {
                     } else item.params.color = color
                     item.params.color = item.params.color.replace(' ', '')
                 }
+
+                if (item.params.color === 'Чёрный'
+                  || item.params.color === 'Тёмно-Серый'
+                  || item.params.color === 'черный') item.params.color = 'Чёрный'
+                if (item.params.color === 'Белый'
+                  || item.params.color === 'Серый'
+                  || item.params.color === 'Бежевый'
+                  || item.params.color === 'Серебристый') item.params.color = 'Белый'
+                if (item.params.color === 'Красный'
+                  || item.params.color === 'Бордовый') item.params.color = 'Красный'
+                if (item.params.color === 'Оранжевый') item.params.color = 'Оранжевый'
+                if (item.params.color === 'Желтый') item.params.color = 'Желтый'
+                if (item.params.color === 'Розовый') item.params.color = 'Розовый'
+                if (item.params.color === 'Фиолетовый') item.params.color = 'Фиолетовый'
+                if (item.params.color === 'Синий'
+                  || item.params.color === 'Тёмно-Синий'
+                  || item.params.color === 'Тёмно-синий'
+                  || item.params.color === 'Голубой') item.params.color = 'Синий'
+                if (item.params.color === 'Зелёный'
+                  || item.params.color === 'Зеленый'
+                  || item.params.color === 'зелёный'
+                  || item.params.color === 'зеленый') item.params.color = 'Зелёный'
+                if (item.params.color === 'Коричневый'
+                  || item.params.color === 'коричневый') item.params.color = 'Коричневый'
 
                 delete item.discount_percent
                 delete item.discount_sum

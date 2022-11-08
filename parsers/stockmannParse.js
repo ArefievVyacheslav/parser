@@ -21,7 +21,7 @@ module.exports = function stockmannParse(itemArr) {
                 item.instalments = true
                 item.delivery = 'Россия'
                 item.deliveryPrice = 199
-                if (item.brand) item.brand = item.brand.toUpperCase()
+                if (item.brand) item.brand = item.brand.toUpperCase().replace('&APOS;', ' ')
 
                 // 2.3. Получаю категорию
                 if (item.category.includes(' > ')) {
@@ -46,7 +46,7 @@ module.exports = function stockmannParse(itemArr) {
                 delete item.params
 
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {
@@ -143,6 +143,7 @@ module.exports = function stockmannParse(itemArr) {
                 }
                 if (item.params.gender === 'Мужской' && item.category === 'Обувь') item.params.size = ['38', '39', '40', '41', '42', '43', '44', '45']
                 if (item.params.gender === 'Женский' && item.category === 'Обувь') item.params.size = ['35', '36', '37', '38', '39', '40', '41', '42']
+                if (item.params.age === 'Детский' && item.category === 'Обувь') item.params.size = ['Требует уточнения']
                 if (item.category === 'Одежда') item.params.size = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
                 if (item.category === 'Аксессуары') item.params.size = ['ONE SIZE']
                 if (item.category && item.category.includes('Детям')) {

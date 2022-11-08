@@ -64,7 +64,7 @@ module.exports = function vipavenueParse(itemArr) {
                 item.name = `${item.categoryId} ${item.brand}`.replace('&amp;', '&')
                 // 2.4. Создаю доп.свойство для объединения параметров цвета, размера, возраста
                 item.params = {}
-                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(2)
+                item.params.rating = (Math.random() * (5 - 4.7) + 4.7).toFixed(4)
                 item.params.purchases = (Math.random() * (4 - 2) + 2).toFixed()
                 // 2.5. Прохожусь по каждому параметру
                 if (!!item.param && item.param.includes('|')) {
@@ -107,6 +107,14 @@ module.exports = function vipavenueParse(itemArr) {
                                 item.params.size.push(size)
                             } else if (!item.params.size.includes(oneParamArr[1])) item.params.size.push(oneParamArr[1] === 'Один размер' ? 'ONE SIZE' : oneParamArr[1])
                         }
+
+                        if (item.category === 'Одежда' && item.params.size) {
+                            const clothesSizes = { XS: '42', S: '44', S: '46', M: '48', M: '50', L: '52', L: '54', XL: '56' }
+                            Object.keys(clothesSizes).forEach(keySize => {
+                                if (clothesSizes[keySize] === item.params.size[0]) item.params.size[0] = keySize
+                            })
+                        }
+
                         if (oneParamArr[0] === 'Возраст') item.params.age = oneParamArr[1] === 'Для малышей' ? 'Детский' : oneParamArr[1];
 
                         if (oneParamArr[0] === 'Пол') item.params.gender = oneParamArr[1]
@@ -117,13 +125,11 @@ module.exports = function vipavenueParse(itemArr) {
                 }
                 if (item.categoryId === 'Обувь для девочек') {
                     item.category = 'Обувь'
-                    item.params.gender = 'Женский'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }
                 if (item.categoryId === 'Одежда для мальчиков') {
                     item.category = 'Одежда'
-                    item.params.gender = 'Мужской'
                     item.params.age = 'Детский'
                     delete item.categoryId
                 }
